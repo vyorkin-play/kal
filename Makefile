@@ -1,18 +1,25 @@
+PROJECT := kal
+VERSION := 0.1.0
+
+STANDARD := -std=c++14
+WARNINGS := -Wall -Wextra -pedantic
+DEFINES = -DNAME="\"$(PROJECT)\"" -DVERSION="\"$(VERSION)\""
+
 BIN_DIR := bin
 SRC_DIR := src
 
 TARGET := $(BIN_DIR)/kal
 
 SRC_EXT := cpp
-SOURCES := $(shell find $(SRC_DIR) -type f -name *.$(SRC_EXT))
-INC := -I llvm/include -I llvm/build/include -I include
-
-CXX := llvm-g++ -std=c++11 -Wall -pedantic
-CXXFLAGS := -g $(INC)
+SOURCES := $(wildcard **/*.$(SRC_EXT))
+INCLUDES := -I include
 LLVMFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs all`
 
+CXX := llvm-g++
+CXXFLAGS := $(STANDARD) $(WARNINGS) $(DEFINES) $(INCLUDES) $(LLVMFLAGS)
+
 $(TARGET): $(SOURCES)
-	$(CXX) $(CXXFLAGS) $(LLVMFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	$(RM) -rf $(BIN_DIR)/*

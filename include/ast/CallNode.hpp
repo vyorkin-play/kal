@@ -1,10 +1,7 @@
 #ifndef __CALL_NODE_H__
 #define __CALL_NODE_H__
 
-#include <string>
-#include <vector>
-#include <memory>
-
+#include "Base.hpp"
 #include "ASTNode.hpp"
 
 class CallNode: public ASTNode {

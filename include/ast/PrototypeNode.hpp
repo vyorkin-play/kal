@@ -1,8 +1,7 @@
 #ifndef __PROTOTYPE_NODE_H__
 #define __PROTOTYPE_NODE_H__
 
-#include <memory>
-#include <vector>
+#include "Base.hpp"
 #include "ASTNode.hpp"
 
 class PrototypeNode: public ASTNode {

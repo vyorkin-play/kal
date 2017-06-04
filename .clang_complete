@@ -1,8 +1,11 @@
--std=c++17
+-std=c++14
 -Wall
+-Wextra
 -pedantic
--I/usr/local/Cellar/llvm/4.0.0_1/bin/../include/c++/v1
+
+-I/usr/local/Cellar/llvm/4.0.0_1/include
+-I/usr/local/Cellar/llvm/4.0.0_1/include/c++/v1
 -I/usr/local/include
--I/usr/local/Cellar/llvm/4.0.0_1/bin/../lib/clang/4.0.0/include
+-I/usr/local/Cellar/llvm/4.0.0_1/lib/clang/4.0.0/include
 -I/usr/include
 -Iinclude

@@ -1,7 +1,7 @@
 #ifndef __FUNCTION_NODE_H__
 #define __FUNCTION_NODE_H__
 
-#include <memory>
+#include "Base.hpp"
 #include "ASTNode.hpp"
 #include "PrototypeNode.hpp"
 

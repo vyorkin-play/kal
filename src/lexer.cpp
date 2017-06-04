@@ -1,7 +1,7 @@
-#include "token.hpp"
-#include "lexer.hpp"
+#include "Token.hpp"
+#include "Lexer.hpp"
 
-int Lexer::getToken() {
+int Lexer::read() {
   static int lastChar = ' ';
 
   // skip whitespaces
@@ -47,7 +47,7 @@ int Lexer::getToken() {
     } while (lastChar != EOF && lastChar != '\n' && lastChar != '\r');
 
     if (lastChar != EOF) {
-      return getToken();
+      return read();
     }
   }
 
@@ -60,4 +60,20 @@ int Lexer::getToken() {
   int currentChar = lastChar;
   lastChar = getchar();
   return currentChar;
+}
+
+std::string& Lexer::getIdentifier() {
+  return identifier;
+}
+
+int Lexer::getToken() const {
+  return token;
+}
+
+double Lexer::getNumber() const {
+  return number;
+}
+
+int Lexer::getNextToken() {
+  return token = read();
 }

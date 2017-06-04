@@ -1,15 +1,11 @@
-#include "Token.hpp"
+#include "Base.hpp"
 #include "Lexer.hpp"
-#include "ASTNode.hpp"
-#include "NumberNode.hpp"
-#include "VariableNode.hpp"
-#include "BinaryNode.hpp"
-#include "CallNode.hpp"
+#include "Logger.hpp"
+#include "Parser.hpp"
 
 int main() {
-	return 0;
-
+  Logger logger;
   Lexer lexer;
-
-  int token = lexer.getToken();
+  Parser parser = Parser(lexer, logger);
+	return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef __VARIABLE_NODE_H__
 #define __VARIABLE_NODE_H__
 
-#include <string>
+#include "Base.hpp"
 #include "ASTNode.hpp"
 
 class VariableNode: public ASTNode {
