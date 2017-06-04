@@ -7,7 +7,7 @@ SRC_EXT := cpp
 SOURCES := $(shell find $(SRC_DIR) -type f -name *.$(SRC_EXT))
 INC := -I llvm/include -I llvm/build/include -I include
 
-CXX := llvm-g++
+CXX := llvm-g++ -std=c++11 -Wall -pedantic
 CXXFLAGS := -g $(INC)
 LLVMFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs all`
 

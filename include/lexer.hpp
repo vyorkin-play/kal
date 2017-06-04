@@ -6,14 +6,14 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include "token.hpp"
+#include "Token.hpp"
 
 class Lexer {
-  private:
-    std::string identifier;
-    double number;
-  public:
-    int getToken();
+private:
+  std::string identifier;
+  double number;
+public:
+  int getToken();
 };
 
 #endif

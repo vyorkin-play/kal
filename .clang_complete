@@ -1,0 +1,8 @@
+-std=c++17
+-Wall
+-pedantic
+-I/usr/local/Cellar/llvm/4.0.0_1/bin/../include/c++/v1
+-I/usr/local/include
+-I/usr/local/Cellar/llvm/4.0.0_1/bin/../lib/clang/4.0.0/include
+-I/usr/include
+-Iinclude
