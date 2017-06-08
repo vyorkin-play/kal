@@ -20,6 +20,7 @@ CXXFLAGS := $(STANDARD) $(WARNINGS) $(DEFINES) $(INCLUDES) $(LLVMFLAGS)
 
 $(TARGET): $(SOURCES)
 	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(TARGET)
 
 clean:
 	$(RM) -rf $(BIN_DIR)/*

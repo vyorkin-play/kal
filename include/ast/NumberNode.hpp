@@ -1,5 +1,5 @@
-#ifndef __BINARY_NODE_H__
-#define __BINARY_NODE_H__
+#ifndef __NUMBER_NODE_H__
+#define __NUMBER_NODE_H__
 
 #include "Base.hpp"
 #include "ASTNode.hpp"

@@ -12,9 +12,9 @@ private:
   int read();
 public:
   std::string& getIdentifier();
-  int getToken() const;
   double getNumber() const;
-  int getNextToken();
+  int getToken() const;
+  int readNextToken();
 };
 
 #endif

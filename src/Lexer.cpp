@@ -4,7 +4,6 @@
 int Lexer::read() {
   static int lastChar = ' ';
 
-  // skip whitespaces
   while (isspace(lastChar)) {
     lastChar = getchar();
   }
@@ -52,13 +51,13 @@ int Lexer::read() {
   }
 
   // if the input doesn't match one of the above cases
-  // it's either an operator character like '+' or the end of the file
+  // it's either an operator character like '+', '*' and '>' or the end of the file
   if (lastChar == EOF) {
     return Token::Eof;
   }
 
   int currentChar = lastChar;
-  lastChar = getchar();
+  lastChar = std::getchar();
   return currentChar;
 }
 
@@ -74,6 +73,6 @@ double Lexer::getNumber() const {
   return number;
 }
 
-int Lexer::getNextToken() {
+int Lexer::readNextToken() {
   return token = read();
 }
