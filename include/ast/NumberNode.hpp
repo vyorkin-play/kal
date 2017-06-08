@@ -10,6 +10,10 @@ private:
 
 public:
   NumberNode(double value): value(value) {}
+
+  virtual llvm::Value* codegen() {
+    return llvm::ConstantFP::get(llvmContext, llvm::APFloat(value));
+  }
 };
 
 #endif

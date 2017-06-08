@@ -17,7 +17,6 @@
 class Parser {
 private:
   Lexer lexer;
-  Logger logger;
 
   std::map<char, int> precedenceMap {
     {'<', 10},

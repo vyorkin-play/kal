@@ -1,7 +1,7 @@
 #include "Parser.hpp"
 
 Parser::Parser():
-  lexer(Lexer()), logger(Logger()) {
+  lexer(Lexer()) {
 }
 
 Lexer& Parser::getLexer() {
@@ -29,7 +29,7 @@ std::unique_ptr<ASTNode> Parser::parseParenExpression() {
     return nullptr;
   }
   if (lexer.getToken() != ')') {
-    logger.write("expected )");
+    Logger::get().write("expected )");
     return nullptr;
   }
   lexer.readNextToken(); // eat )
@@ -58,7 +58,7 @@ std::unique_ptr<ASTNode> Parser::parseIdentifier() {
         break;
       }
       if (lexer.getToken() != ',') {
-        logger.write("expected ')' or ',' in argument list");
+        Logger::get().write("expected ')' or ',' in argument list");
         return nullptr;
       }
       lexer.readNextToken();
@@ -79,7 +79,7 @@ std::unique_ptr<ASTNode> Parser::parsePrimary() {
     case '(':
       return parseParenExpression();
     default:
-      logger.write("unknown token when expecting an expression");
+      Logger::get().write("unknown token when expecting an expression");
       return nullptr;
   }
 }
@@ -125,7 +125,7 @@ std::unique_ptr<ASTNode> Parser::parseBinaryRHS(const int precedence, std::uniqu
 
 std::unique_ptr<PrototypeNode> Parser::parsePrototype() {
   if (lexer.getToken() != Token::Identifier) {
-    logger.write("expected function name in prototype");
+    Logger::get().write("expected function name in prototype");
     return nullptr;
   }
 
@@ -133,7 +133,7 @@ std::unique_ptr<PrototypeNode> Parser::parsePrototype() {
   lexer.readNextToken(); // eat function name
 
   if (lexer.getToken() != '(') {
-    logger.write("expected '(' in prototype");
+    Logger::get().write("expected '(' in prototype");
     return nullptr;
   }
 
@@ -144,7 +144,7 @@ std::unique_ptr<PrototypeNode> Parser::parsePrototype() {
   }
 
   if (lexer.getToken() != ')') {
-    logger.write("expected ')' in prototype");
+    Logger::get().write("expected ')' in prototype");
     return nullptr;
   }
 

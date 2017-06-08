@@ -13,6 +13,10 @@ public:
   FunctionNode(std::unique_ptr<PrototypeNode> proto,
                std::unique_ptr<ASTNode> body):
     proto(std::move(proto)), body(std::move(body)) {}
+
+  virtual llvm::Value* codegen() {
+    return nullptr;
+  }
 };
 
 #endif

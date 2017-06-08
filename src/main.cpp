@@ -34,7 +34,7 @@ void repl(Parser& parser) {
 }
 
 int main() {
-  Parser parser = Parser();
+  auto parser = Parser();
   repl(parser);
 	return 0;
 }

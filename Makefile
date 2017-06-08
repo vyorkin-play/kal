@@ -13,7 +13,7 @@ TARGET := $(BIN_DIR)/kal
 SRC_EXT := cpp
 SOURCES := $(wildcard **/*.$(SRC_EXT))
 INCLUDES := -I include
-LLVMFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs all`
+LLVMFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs core`
 
 CXX := llvm-g++
 CXXFLAGS := $(STANDARD) $(WARNINGS) $(DEFINES) $(INCLUDES) $(LLVMFLAGS)

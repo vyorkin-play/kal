@@ -16,6 +16,10 @@ public:
   const std::string& getName() const {
     return name;
   }
+
+  virtual llvm::Value* codegen() {
+    return nullptr;
+  }
 };
 
 #endif
