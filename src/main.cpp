@@ -3,14 +3,10 @@
 #include "Logger.hpp"
 #include "Parser.hpp"
 
-// playground
-
 void repl(Parser& parser) {
-  auto lexer = parser.getLexer();
   while (true) {
     std::cerr << "> ";
-    lexer.readNextToken();
-    switch (lexer.getToken()) {
+    switch (parser.next()) {
     case Token::Eof:
       return;
     case ';':

@@ -8,6 +8,10 @@ Lexer& Parser::getLexer() {
   return lexer;
 }
 
+int Parser::next() {
+  return lexer.readNextToken();
+}
+
 int Parser::getTokenPrecedence() const {
   const int token = lexer.getToken();
   if (precedenceMap.find(token) == std::end(precedenceMap))
@@ -104,8 +108,7 @@ std::unique_ptr<ASTNode> Parser::parseBinaryRHS(const int precedence, std::uniqu
     int binaryOp = lexer.getToken();
     lexer.readNextToken(); // eat it
 
-    // parse the primary expression that
-    // follows binary operator
+    // parse the primary expression that follows binary operator
     auto rhs = parsePrimary();
     if (!rhs) {
       return nullptr;

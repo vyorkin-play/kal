@@ -74,5 +74,6 @@ double Lexer::getNumber() const {
 }
 
 int Lexer::readNextToken() {
-  return token = read();
+  token = read();
+  return token;
 }

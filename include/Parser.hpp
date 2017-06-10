@@ -31,6 +31,8 @@ public:
 
   Lexer& getLexer();
 
+  int next();
+
   // numberexpr ::= number
   std::unique_ptr<ASTNode> parseNumber();
 
