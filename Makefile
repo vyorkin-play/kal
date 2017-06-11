@@ -2,6 +2,7 @@ PROJECT := kal
 VERSION := 0.1.0
 
 STANDARD := -std=c++14
+OPTIONS := -g
 WARNINGS := -Wall -Wextra -pedantic
 DEFINES = -DNAME="\"$(PROJECT)\"" -DVERSION="\"$(VERSION)\""
 
@@ -16,7 +17,7 @@ INCLUDES := -I include
 LLVMFLAGS = `llvm-config --cxxflags --ldflags --system-libs --libs core`
 
 CXX := llvm-g++
-CXXFLAGS := $(STANDARD) $(WARNINGS) $(DEFINES) $(INCLUDES) $(LLVMFLAGS)
+CXXFLAGS := $(STANDARD) $(OPTIONS) $(WARNINGS) $(DEFINES) $(INCLUDES) $(LLVMFLAGS)
 
 $(TARGET): $(SOURCES)
 	$(CXX) $(CXXFLAGS) $^ -o $@

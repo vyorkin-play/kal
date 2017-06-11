@@ -16,6 +16,7 @@ public:
     llvm::Value* value = namedValues[name];
     if (!value) {
       Logger::get().write("unknown variable name");
+      return nullptr;
     }
     return value;
   }

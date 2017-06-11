@@ -37,7 +37,7 @@ class Parser;
 
 static llvm::LLVMContext llvmContext;
 static llvm::IRBuilder<> irBuilder(llvmContext);
-static std::unique_ptr<llvm::Module> module;
+static std::unique_ptr<llvm::Module> module = llvm::make_unique<llvm::Module>("my cool JIT", llvmContext);
 static std::map<std::string, llvm::Value*> namedValues;
 
 #endif
